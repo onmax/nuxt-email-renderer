@@ -1,5 +1,6 @@
 import { type BundledLanguage, type BundledTheme, getSingletonHighlighter, type HighlighterGeneric } from 'shiki'
 import { consola } from 'consola'
+import { ref } from 'vue'
 
 const highlighter = ref<HighlighterGeneric<BundledLanguage, BundledTheme> | undefined>()
 

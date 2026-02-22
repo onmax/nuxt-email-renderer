@@ -26,8 +26,12 @@ export function convertToPx(value: PaddingType) {
   const matches = /^([\d.]+)(px|em|rem|%)$/.exec(value)
 
   if (matches && matches.length === 3) {
-    const numValue = Number.parseFloat(matches[1])
+    const rawValue = matches[1]
     const unit = matches[2]
+    if (!rawValue || !unit) {
+      return 0
+    }
+    const numValue = Number.parseFloat(rawValue)
 
     switch (unit) {
       case 'px':
@@ -96,7 +100,7 @@ export function parsePadding({
         pt = convertToPx(values[0])
         pr = convertToPx(values[1])
         pb = convertToPx(values[2])
-        pl = convertToPx(values[3])
+        pl = convertToPx(values[3] ?? '')
         break
       default:
         break

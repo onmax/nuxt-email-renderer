@@ -1,6 +1,6 @@
 import MyModule from '../../../src/module'
 
-export default defineNuxtConfig({
+export default {
   modules: [MyModule, '@nuxtjs/i18n'],
   i18n: {
     locales: [
@@ -11,4 +11,4 @@ export default defineNuxtConfig({
     defaultLocale: 'en',
     vueI18n: './i18n.config.ts',
   },
-})
+}

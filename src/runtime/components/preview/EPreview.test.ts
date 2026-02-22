@@ -47,7 +47,10 @@ describe('<EPreview> component', () => {
       const html = renderWhiteSpace(text)
       expect(html).not.toBeNull()
 
-      const actualTextContent = html?.children.join('')
+      const children = html?.children
+      const actualTextContent = Array.isArray(children)
+        ? children.map(String).join('')
+        : ''
       const expectedTextContent = whiteSpaceCharacters.repeat(150 - text.length)
       expect(actualTextContent).toBe(expectedTextContent)
     })

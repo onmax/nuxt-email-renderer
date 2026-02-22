@@ -13,10 +13,10 @@ export default defineComponent({
       let cssText = ''
       if (slotContent && slotContent.length > 0) {
         const firstNode = slotContent[0]
-        if (typeof firstNode.children === 'string') {
+        if (firstNode && typeof firstNode.children === 'string') {
           cssText = firstNode.children
         }
-        else if (Array.isArray(firstNode.children)) {
+        else if (firstNode && Array.isArray(firstNode.children)) {
           // If children is an array of text nodes, join them
           cssText = firstNode.children.join('')
         }
